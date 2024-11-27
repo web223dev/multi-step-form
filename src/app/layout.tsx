@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "../styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const ubuntu = Ubuntu({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Multi Step Form",
@@ -17,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex h-screen w-screen  bg-blue-50 antialiased ${inter.className}`}
+        className={`${ubuntu.className} bg-blue-50 antialiased flex justify-center  items-baseline lg:items-center h-screen min-h-[540px] relative`}
       >
         {children}
       </body>

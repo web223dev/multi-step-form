@@ -39,7 +39,7 @@ export function MultiForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 lg:relative lg:flex-1"
+        className="space-y-4 lg:relative lg:flex-1 pt-8"
       >
         <FormProvider {...form}>
           {step === 1 && <StepOne />}
@@ -48,7 +48,7 @@ export function MultiForm() {
           {step === 4 && <StepFour />}
         </FormProvider>
         {step < 5 && (
-          <div className="absolute bottom-0 left-0 flex w-full justify-between bg-white p-4 lg:bottom-0">
+          <div className="bottom-0 left-0 flex w-full justify-between bg-white p-4 lg:bottom-0">
             <Button
               type="button"
               variant={"outline"}

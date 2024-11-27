@@ -10,11 +10,11 @@ interface MultiStepFormLayout {
 export default function MultiStepFormLayout({ children }: MultiStepFormLayout) {
   return (
     <MultiStepContenxtProvider>
-      <div className="mx-auto flex max-h-min flex-col rounded-md lg:my-40 lg:grid lg:max-w-[850px] lg:grid-cols-3 lg:grid-rows-5 lg:items-center lg:bg-white lg:p-6 lg:shadow-md">
+      <div className="lg:flex lg:h-auto lg:justify-center rounded-2xl bg-white shadow-lg mt-28 lg:mt-0 mx-4">
         <Steps />
         {children}
-        <Footer />
       </div>
+      <Footer />
     </MultiStepContenxtProvider>
   );
 }

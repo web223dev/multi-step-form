@@ -28,8 +28,7 @@ export function DisplayTitle() {
         "flex h-full flex-col items-center justify-center gap-5 text-center lg:px-16"
       }`}
     >
-      {/* {step === 5 && <ThankYouIcon className="size-16 lg:size-32" />} */}
-      <h1 className={`text-2xl font-bold text-sky-950 lg:text-4xl`}>
+      <h1 className={`text-2xl font-bold text-sky-950 lg:text-[32px]`}>
         {titleData.title[step - 1]}
       </h1>
       <p className="text-gray-400 lg:text-lg">

@@ -8,12 +8,14 @@ const stepData = [
 ];
 export function Steps() {
   return (
-    <header className="bgno-repeat flex h-[200px] items-start justify-center bg-blue-500 bg-sidebarMobile bg-cover p-6 lg:row-span-3 lg:row-start-2 lg:h-[540px] lg:justify-start lg:rounded-md lg:bg-sidebarDesktop lg:bg-cover lg:bg-center lg:pt-10">
-      <ul className="flex gap-4 text-white lg:flex-col lg:gap-8">
-        {stepData.map((info, index) => {
-          return <StepItem key={index} infos={info} />;
-        })}
-      </ul>
+    <header className="lg:p-4 lg:pr-0">
+      <div className="absolute lg:relative top-0 left-0 -z-10 lg:z-0 w-full bg-sidebarMobile lg:bg-sidebarDesktop lg:rounded-lg lg:bg-bottom bg-no-repeat bg-cover h-[190px] lg:h-full">
+        <ul className="flex gap-4 text-white justify-center pt-8 lg:flex-col lg:gap-8 lg:py-10 lg:px-[41px]">
+          {stepData.map((info, index) => {
+            return <StepItem key={index} infos={info} />;
+          })}
+        </ul>
+      </div>
     </header>
   );
 }
