@@ -1,4 +1,4 @@
-import { StepItem } from "./step-item";
+import { StepItem } from "@/components/step-item";
 
 const stepData = [
   { num: 1, title: "Step 1", description: "Your Info" },
