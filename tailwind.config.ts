@@ -20,8 +20,8 @@ const config: Config = {
       },
     },
     backgroundImage: {
-      sidebarMobile: 'url("/bg-sidebar-mobile.svg")',
-      sidebarDesktop: 'url("/bg-sidebar-desktop.svg")',
+      "sidebar-desktop": 'url("/bg-sidebar-desktop.svg")',
+      "sidebar-mobile": 'url("/bg-sidebar-mobile.svg")',
     },
   },
   plugins: [require("tailwindcss-animate")],
