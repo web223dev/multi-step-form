@@ -4,9 +4,9 @@ import { useMultiContext } from "@/contexts/multistep-form-context";
 
 const titleData = {
   title: [
-    "Personal info",
-    "Select your plan",
-    "Pick add-ons",
+    "Identity Details",
+    "Address Details",
+    "File Upload",
     "Finishing up",
     "Thank you!",
   ],

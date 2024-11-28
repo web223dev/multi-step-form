@@ -11,12 +11,22 @@ import { StepTwo } from "@/components/step_two";
 import { StepThree } from "@/components/step_three";
 import { StepFour } from "@/components/step_four";
 
-const formSchema = z.object({
-  name: z.string().min(1, { message: "This field is required" }),
-  email: z.string().email({ message: "This field is required" }),
-  phone: z.string().min(8, { message: "This field is required" }),
-});
-
+const formSchema = [
+  z.object({
+    name: z.string().min(1, { message: "This field is required" }),
+    email: z.string().email({ message: "This field is required" }),
+    gender: z.enum(["male", "female"], {
+      required_error: "This field is required.",
+    }),
+    birth: z.date({
+      required_error: "A date of birth is required.",
+    }),
+  }),
+  z.object({
+    phone: z.string().min(8, { message: "This field is required" }),
+    address: z.string().min(8, { message: "This field is required" }),
+  }),
+];
 type NewFormData = z.infer<typeof formSchema>;
 
 export function MultiForm() {
@@ -26,7 +36,7 @@ export function MultiForm() {
     defaultValues: {
       name: "test",
       email: "test@example.com",
-      phone: "123123123",
+      // phone: "123123123",
     },
   });
   function onSubmit(values: NewFormData) {
@@ -39,7 +49,7 @@ export function MultiForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 lg:relative lg:flex-1 pt-8"
+        className="space-y-5 lg:relative lg:flex-1 py-6"
       >
         <FormProvider {...form}>
           {step === 1 && <StepOne />}
@@ -48,7 +58,7 @@ export function MultiForm() {
           {step === 4 && <StepFour />}
         </FormProvider>
         {step < 5 && (
-          <div className="bottom-0 left-0 flex w-full justify-between bg-white p-4 lg:bottom-0">
+          <div className="bottom-0 left-0 flex w-full justify-between bg-white lg:bottom-0">
             <Button
               type="button"
               variant={"outline"}

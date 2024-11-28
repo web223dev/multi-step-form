@@ -1,9 +1,9 @@
 import { StepItem } from "@/components/step-item";
 
 const stepData = [
-  { num: 1, title: "Step 1", description: "Your Info" },
-  { num: 2, title: "Step 2", description: "Select Plan" },
-  { num: 3, title: "Step 3", description: "Add-ons" },
+  { num: 1, title: "Step 1", description: "Identity Details" },
+  { num: 2, title: "Step 2", description: "Address Details" },
+  { num: 3, title: "Step 3", description: "File Upload" },
   { num: 4, title: "Step 4", description: "Summary" },
 ];
 export function Steps() {
