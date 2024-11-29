@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 import "../styles/globals.css";
 
 const ubuntu = Ubuntu({
@@ -23,6 +24,7 @@ export default function RootLayout({
         className={`${ubuntu.className} bg-blue-50 antialiased flex justify-center  items-baseline lg:items-center h-screen min-h-[540px] relative`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
