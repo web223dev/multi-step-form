@@ -16,4 +16,28 @@ body {
   :root {
     --radius: 0.5rem;
   }
+
+  h1 {
+    @apply text-xl font-bold text-brand-marine-blue md:text-3xl;
+  }
+
+  h2 {
+    @apply font-medium text-brand-marine-blue md:text-lg;
+  }
+
+  h3 {
+    @apply font-medium text-brand-marine-blue md:text-lg;
+  }
+
+  h6 {
+    @apply text-sm font-medium text-brand-marine-blue md:text-base;
+  }
+
+  p {
+    @apply text-sm text-brand-cool-gray md:text-base;
+  }
+
+  label {
+    @apply text-xs text-brand-marine-blue md:text-sm;
+  }
 }

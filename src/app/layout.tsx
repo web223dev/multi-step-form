@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${ubuntu.className} bg-blue-50 antialiased flex justify-center  items-baseline lg:items-center h-screen min-h-[540px] relative`}
+        className={`${ubuntu.className} bg-blue-50 antialiased flex justify-center items-baseline md:items-center h-screen min-h-[540px] relative`}
       >
         {children}
         <Toaster />

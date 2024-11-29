@@ -16,37 +16,56 @@ import CompleteStep from "./CompleteStep";
 
 const steps: Steps = [
   { id: "complete", name: "Complete", fields: [] },
-  // { id: "step-1", name: "Your info", fields: ["name", "email", "phone"] },
-  { id: "step-1", name: "Your info", fields: ["name"] },
-  { id: "step-2", name: "", fields: [] },
-  { id: "step-3", name: "", fields: [] },
-  { id: "step-4", name: "", fields: [] },
+  {
+    id: "step-1",
+    name: "Identity Details",
+    fields: ["name", "email", "gender", "birth"],
+  },
+  {
+    id: "step-2",
+    name: "Address Details",
+    fields: ["phone", "country", "address"],
+  },
+  { id: "step-3", name: "File Upload", fields: ["media"] },
+  { id: "step-4", name: "Summary", fields: [] },
 ];
 
 const LAST_STEP = steps.length - 1;
 const COMPLETE_STEP = 0;
 
 export default function MultiStepForm() {
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(1);
   const { toast } = useToast();
 
   const form = useForm<FormValues>({
     mode: "all",
     defaultValues: {
-      name: "",
-      // email: "",
-      // phone: "",
-      // address: "",
+      name: "sfdsd",
+      email: "test@sdfs.gb",
+      phone: "12345678904",
+      gender: "male",
+      birth: new Date("2024-11-18T16:00:00.000Z"),
+      address: "sdgssdfsdf",
+      country: "UK",
     },
     resolver: zodResolver(formDataSchema),
   });
 
   const onSubmit = useCallback((data: FormValues) => {
+    const processedData = {
+      ...data,
+      media: {
+        fileName: data.media?.name || "No file uploaded",
+      },
+    };
+
     toast({
       title: "You submitted the following values:",
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+          <code className="text-white">
+            {JSON.stringify(processedData, null, 2)}
+          </code>
         </pre>
       ),
     });
@@ -73,84 +92,62 @@ export default function MultiStepForm() {
     <>
       <div className="bg-sidebar-mobile w-full h-full bg-contain bg-top bg-no-repeat top-0 fixed flex md:hidden" />
       {/* Steps - mobile */}
-      <div className="flex my-5 md:hidden">
-        <div className="z-20 my-3 ml-2 flex items-center">
-          <Button
-            className={`size-9 rounded-full border font-bold text-brand-alabaster`}
-          >
-            1
-          </Button>
-        </div>
-        <div className="z-20 my-3 ml-2 flex items-center">
-          <Button
-            className={`size-9 rounded-full border font-bold text-brand-alabaster`}
-          >
-            2
-          </Button>
-        </div>
-        <div className="z-20 my-3 ml-2 flex items-center">
-          <Button
-            className={`size-9 rounded-full border font-bold text-brand-alabaster`}
-          >
-            3
-          </Button>
-        </div>
-        <div className="z-20 my-3 ml-2 flex items-center">
-          <Button
-            className={`size-9 rounded-full border font-bold text-brand-alabaster`}
-          >
-            4
-          </Button>
-        </div>
+      <div className="flex my-5 space-x-4 md:hidden">
+        {steps.map(
+          (step, index) =>
+            index !== COMPLETE_STEP && (
+              <div className="z-20 my-3 ml-2 flex items-center" key={step.id}>
+                <Button
+                  className={`size-9 rounded-full border font-bold ${
+                    currentStep === index
+                      ? "bg-brand-pastel-blue text-brand-marine-blue"
+                      : "text-brand-alabaster"
+                  }`}
+                  disabled={
+                    `step-${currentStep}` === step.id ||
+                    currentStep === COMPLETE_STEP
+                  }
+                  onClick={() => handleNav(index)}
+                >
+                  {index}
+                </Button>
+              </div>
+            )
+        )}
       </div>
-      <div className="z-10 w-full max-w-[350px] md:max-w-[1050px] p-4">
+      <div className="z-10 w-full max-w-[500px] md:max-w-[1050px] p-4">
         <div className="bg-white flex md:h-min md:min-h-[600px] rounded-xl md:rounded-2xl p-4 shadow-xl">
           {/* Steps - desktop */}
           <div className="hidden md:visible md:flex flex-col rounded-xl min-w-[274px] bg-sidebar-desktop bg-cover bg-bottom bg-no-repeat p-5 pt-7">
-            <div className="my-3 ml-2 flex items-center">
-              <Button className="size-8 border rounded-full text-sm font-bold text-brand-alabaster">
-                1
-              </Button>
-              <div className="flex flex-col items-baseline uppercase ml-5">
-                <span className="text-xs text-brand-light-gray">Step 1</span>
-                <span className="font-bold tracking-wider text-brand-alabaster">
-                  Your info
-                </span>
-              </div>
-            </div>
-            <div className="my-3 ml-2 flex items-center">
-              <Button className="size-8 border rounded-full text-sm font-bold text-brand-alabaster">
-                2
-              </Button>
-              <div className="flex flex-col items-baseline uppercase ml-5">
-                <span className="text-xs text-brand-light-gray">Step 1</span>
-                <span className="font-bold tracking-wider text-brand-alabaster">
-                  Your info
-                </span>
-              </div>
-            </div>
-            <div className="my-3 ml-2 flex items-center">
-              <Button className="size-8 border rounded-full text-sm font-bold text-brand-alabaster">
-                3
-              </Button>
-              <div className="flex flex-col items-baseline uppercase ml-5">
-                <span className="text-xs text-brand-light-gray">Step 1</span>
-                <span className="font-bold tracking-wider text-brand-alabaster">
-                  Your info
-                </span>
-              </div>
-            </div>
-            <div className="my-3 ml-2 flex items-center">
-              <Button className="size-8 border rounded-full text-sm font-bold text-brand-alabaster">
-                4
-              </Button>
-              <div className="flex flex-col items-baseline uppercase ml-5">
-                <span className="text-xs text-brand-light-gray">Step 1</span>
-                <span className="font-bold tracking-wider text-brand-alabaster">
-                  Your info
-                </span>
-              </div>
-            </div>
+            {steps.map(
+              (step, index) =>
+                index !== COMPLETE_STEP && (
+                  <div className="my-3 ml-2 flex items-center" key={step.id}>
+                    <Button
+                      className={`size-8 border rounded-full text-sm font-bold ${
+                        currentStep === index
+                          ? "bg-brand-pastel-blue text-brand-marine-blue"
+                          : "text-brand-alabaster"
+                      }`}
+                      disabled={
+                        `step-${currentStep}` === step.id ||
+                        currentStep === COMPLETE_STEP
+                      }
+                      onClick={() => handleNav(index)}
+                    >
+                      {index}
+                    </Button>
+                    <div className="flex flex-col items-baseline uppercase ml-5">
+                      <span className="text-xs text-brand-light-gray">
+                        Step {index}
+                      </span>
+                      <span className="font-bold tracking-wider text-brand-alabaster">
+                        {step.name}
+                      </span>
+                    </div>
+                  </div>
+                )
+            )}
           </div>
           {/* Form */}
           <Form {...form}>
@@ -165,7 +162,7 @@ export default function MultiStepForm() {
 
               {currentStep === COMPLETE_STEP && <CompleteStep />}
 
-              <div className="fixed md:static bottom-0 left-0 right-0 flex w-full justify-between items-center bg-white px-5 py-3 md:mb-4 md:mt-auto md:p-0">
+              <div className="fixed md:static bottom-0 left-0 right-0 flex w-full justify-between items-center bg-white px-5 py-3 md:mb-4 md:mt-auto md:p-0 md:pt-4">
                 <Button
                   disabled={currentStep === 1 || currentStep === COMPLETE_STEP}
                   type="button"
