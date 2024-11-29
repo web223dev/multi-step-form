@@ -12,7 +12,7 @@ export default function CompleteStep() {
       <p className="mx-3 mt-3 text-pretty text-center md:text-lg md:tracking-wide">
         Thanks for confirming your subscription! We hope you have fun using our
         platform. If you ever need support, please feel free to email us at
-        support@loremgaming.com.
+        rossgellerdev@gmail.com.
       </p>
     </div>
   );

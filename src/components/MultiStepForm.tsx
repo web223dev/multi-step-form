@@ -40,13 +40,6 @@ export default function MultiStepForm() {
   const form = useForm<FormValues>({
     mode: "all",
     defaultValues: {
-      // name: "sfdsd",
-      // email: "test@sdfs.gb",
-      // phone: "12345678904",
-      // gender: "male",
-      // birth: new Date("2024-11-18T16:00:00.000Z"),
-      // address: "sdgssdfsdf",
-      // country: "UK",
       name: "",
       email: "",
       phone: "",
@@ -78,14 +71,10 @@ export default function MultiStepForm() {
   }, []);
 
   const handleNav = async (index: number) => {
-    console.log("index: ", index);
-
     let isValid = true;
     let failedStep = currentStep;
     for (let i = currentStep; i < index && isValid; i++) {
-      console.log("i: ", i);
       isValid = await form.trigger(steps[i].fields);
-      console.log(steps[i].fields);
 
       if (!isValid) {
         failedStep = i;
