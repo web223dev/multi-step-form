@@ -23,7 +23,7 @@ export const formDataSchema = z.object({
   }),
   phone: z.string().min(1, "This field is required"),
   address: z.string().trim().min(8, "This field is required"),
-  country: z.string({ required_error: "Please select a country" }),
+  country: z.string().trim().min(1, "This field is required"),
   media: z
     .instanceof(File, { message: "File is required" })
     .refine((file) => file.size <= MAX_FILE_SIZE, {

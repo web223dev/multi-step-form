@@ -78,10 +78,15 @@ export default function MultiStepForm() {
   }, []);
 
   const handleNav = async (index: number) => {
+    console.log("index: ", index);
+
     let isValid = true;
     let failedStep = currentStep;
-    for (let i = currentStep; i <= index && isValid; i++) {
+    for (let i = currentStep; i < index && isValid; i++) {
+      console.log("i: ", i);
       isValid = await form.trigger(steps[i].fields);
+      console.log(steps[i].fields);
+
       if (!isValid) {
         failedStep = i;
       }
