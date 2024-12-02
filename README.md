@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Multi-Step KYC Form ( Next.js, Typescript, React-Hook-Form )
 
-## Getting Started
+This multi-step Know Your Customer (KYC) form features validation at every step, including fields such as Name, Email, Date Picker, and File Upload. Built using TypeScript, Zod, and React Hook Form, it demonstrates how to implement robust validation for various form fields. The form is cleanly designed and highly customizable, making it easy to adapt to different use cases.
 
-First, run the development server:
+### Website preview
+
+![multi-step-form-preview](https://github.com/user-attachments/assets/ed9f4887-1a43-4bed-a2d0-63491585fa35)
+
+:star: Star me on GitHub — it helps!
+
+## Features 📋
+
+⚡️ Fully Responsive\
+⚡️ Multi Step\
+⚡️ Form validation (`input`, `email`, `radio`, `date`, `select`, `file upload`)\
+⚡️ Easy to modify
+
+## Tech Stack
+
+- [Typescript](https://www.typescriptlang.org/) - Language
+- [React](https://react.dev/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [TailwindCSS](https://tailwindcss.com/) - CSS framework
+- [Shadcn](https://ui.shadcn.com/) - Component library
+- [React-Hook-Form](https://www.react-hook-form.com/) - For form validation
+- [Zod](https://zod.dev/) - For schema validation
+
+## Installation :arrow_down:
+
+#### You will need to download Git and Node to run this project
+
+- [Git](https://git-scm.com/downloads)
+- [Node](https://nodejs.org/en/download/)
+
+#### Ensure that your computer has the stable or latest versions of both Git and Node installed.
+
+```bash
+node --version
+git --version
+```
+
+## Getting Started :dart:
+
+#### Fork and Clone the repo
+
+To Fork the repo click on the fork button at the top right of the page. Once the repo is forked open your terminal and perform the following commands
+
+```bash
+git clone https://github.com/<YOUR GITHUB USERNAME>/multi-step-form.git
+
+cd portfolio-template
+```
+
+#### Install packages from the root directory
+
+```bash
+npm install
+# or
+yarn
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributing 💡
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### Step 1
 
-## Learn More
+- **Option 1**
 
-To learn more about Next.js, take a look at the following resources:
+  - 🍴 Fork this repo!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Option 2**
+  - 👯 Clone this repo to your local machine.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Step 2
 
-## Deploy on Vercel
+- **Build your code** 🔨🔨🔨
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Step 3
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 🔃 Create a new pull request.
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details.
